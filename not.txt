@@ -1,0 +1,53 @@
+2 stack olacak --->>>> a ve b 
+	amaç : a'yı ascending sort
+Yani sorting yazmayacaksın en kısa doğru sıralama için yol haritasının listesini üreteceksin
+
+sa sb ss	 || 
+pa pb 		 ||   -->>
+ra rb rr     ||	  -->> çıktıda bu komutlar olacak 
+rra rrb rrr  ||
+
+Stack yapısını --->> linked list ile oluşturacaksın 
+
+kontrol edeceksin :
+-> değişken tipi int mi
+-> duplicate var mı 
+-> overflow var mı 
+
+Sayıların sıralarına göre indeksleyeceksin
+
+
+4 algoritma lazım:
+
+1. Simple (O(n2)) için
+-bubble sort, selection sort mantığı
+
+2. Medium O(n(kök)n)
+Chunk sistemi ->>
+-Listeyi parçalara böl 
+-Küçük chunkları b ye atacaksın
+-Sonra geri toplayacaksın 
+
+3. Complex (O(n log n))
+Radix sort->>
+-Binary bitlere göre sıralayacaksın 
+-pb ve ra kullanacaksın 
+
+Mantık --->> bit 0 -> pb
+			 bit 1 -> ra
+	sonra pa ile geri alacaksın 
+
+
+4. Adaptive 
+	-disorder hesaplamasını yapacaksın 
+eğer <0.2 ise simple 
+	 <0.5 ise medium 
+	 >=0.5 ise complex
+
+
+DİKKAT ET !!! 
+❌ duplicate kontrolü yok -> aynı sayı birden fazla girilmiş mi? Girilmiş ise-> Error
+❌ memory leak
+❌ segfault (özellikle rotate)
+❌ infinite loop radix’te
+❌ sadece tek algoritma yazmak (fail)
