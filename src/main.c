@@ -6,7 +6,7 @@
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 19:44:27 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/03/31 21:09:13 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/04/09 19:02:20 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	duplicate_control(char *t_stack)
 	return (1);
 }
 
-t_list	argumandan_linkedlist(char const **argv)
+st_list	argumandan_linkedlist(char const **argv)
 {
 	t_list	**stack_a;
 
