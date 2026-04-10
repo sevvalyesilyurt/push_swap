@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "includes/push_swap.h"
 #include <stdlib.h>
 
 t_node	*last_node(t_node *lst)

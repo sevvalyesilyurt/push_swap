@@ -25,3 +25,29 @@ make
 
 Programı test etmek için:
 ./push_swap 3 2 5 1 4
+
+# PROJE 8 PARÇAYA AYRILDI:
+
+`parse`
+Argümanları alma, flag ayırma, sayı doğrulama, split, duplicate kontrolü.
+
+`stack`
+Stack oluşturma, erişim, free ve temel yardımcılar.
+
+`ops`
+Push_swap operasyonlarının gerçek implementasyonu ve operation emit mantığı.
+
+`analysis`
+Disorder hesabı, indexing, istatistik, strategy seçimi.
+
+`sort`
+simple, medium, complex, adaptive ve small sort.
+
+`bench`
+--bench çıktısı ve operasyon istatistikleri.
+
+`bonus`
+checker tarafı.
+
+`utils`
+hata, atol, yardımcı fonksiyonlar.

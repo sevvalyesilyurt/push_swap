@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "includes/push_swap.h"
 #include <stdlib.h>
 
 t_node	*new_node(long number)
