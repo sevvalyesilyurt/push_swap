@@ -51,3 +51,9 @@ DİKKAT ET !!!
 ❌ segfault (özellikle rotate)
 ❌ infinite loop radix’te
 ❌ sadece tek algoritma yazmak (fail)
+
+
+* heaaderler şevall ekliyceği için header eklnemedi
+* alogirtma değişebilir diye struc değişitirilmedi
+* türk algoritması mantıklı onu deneyebiliriz
+* 
