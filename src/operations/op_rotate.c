@@ -12,6 +12,7 @@ static void	rotate_node(t_node **src)
 	last_node(*src)->next = tmp;
 	tmp->next = NULL;
 }
+
 void	just_ra(t_node **a)
 {
 	rotate_node(a);

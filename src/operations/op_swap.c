@@ -43,10 +43,12 @@ void	just_sa(t_node **a)
 {
 	swap_node(a);
 }
+
 void	just_sb(t_node **b)
 {
 	swap_node(b);
 }
+
 void	just_ss(t_node **a, t_node **b)
 {
 	if (!b || !*b || !(*b)->next)

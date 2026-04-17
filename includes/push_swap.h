@@ -21,4 +21,7 @@ void				pa(t_node **b, t_node **a);
 void				just_pb(t_node **a, t_node **b);
 void				just_pa(t_node **b, t_node **a);
 
+// utils kısmı
+void	error_exit(t_node **a);
+
 #endif
