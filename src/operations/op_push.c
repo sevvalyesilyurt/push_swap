@@ -13,29 +13,21 @@ static void	push_node(t_node **src, t_node **dst)
 	*dst = tmp;
 }
 
-void	pb(t_node **a, t_node **b)
+void	pb(t_node **a, t_node **b, int print)
 {
 	if (!a || !*a)
 		return ;
 	push_node(a, b);
-	write(1, "pb\n", 3);
+	if (print)
+		write(1, "pb\n", 3);
 }
 
-void	pa(t_node **b, t_node **a)
+void	pa(t_node **b, t_node **a, int print)
 {
 	if (!b || !*b)
 		return ;
 	push_node(b, a);
-	write(1, "pa\n", 3);
-}
-// bu kısımdakiler sadece işlem yapıyor ekrana yazdırmıyor
-// bench ve ona benzer durumlar için (bu yorumlar silinecek)
-void	just_pb(t_node **a, t_node **b)
-{
-	push_node(a, b);
+	if (print)
+		write(1, "pa\n", 3);
 }
 
-void	just_pa(t_node **b, t_node **a)
-{
-	push_node(b, a);
-}
