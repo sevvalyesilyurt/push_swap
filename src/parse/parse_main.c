@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 19:01:56 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/17 19:33:20 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/04/18 21:18:57 by ahelman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 #include <unistd.h>
 #include "push_swap.h"
 #include <limits.h>
