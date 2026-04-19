@@ -56,6 +56,3 @@ DİKKAT ET !!!
 * heaaderler şevall ekliyceği için header eklnemedi
 * alogirtma değişebilir diye struc değişitirilmedi
 * türk algoritması mantıklı onu deneyebiliriz
-* 
-
-

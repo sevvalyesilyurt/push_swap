@@ -40,4 +40,4 @@ void	ss(t_node **a, t_node **b, int print)
 	if (print)
 		write(1, "ss\n", 3);
 }
-//print bench için eklendi, yazdrıma durmunu kontrol etmek için
+// print bench için eklendi, yazdrıma durmunu kontrol etmek için

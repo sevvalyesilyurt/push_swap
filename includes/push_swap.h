@@ -1,6 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+/* --- 1. Düğüm Yapısı (Singly Linked List) --- */
 typedef struct s_node
 {
 	long			nbr;
@@ -8,6 +9,7 @@ typedef struct s_node
 	struct s_node	*next;
 }					t_node;
 
+/* --- 2. Stack Yapısı (Meta Veri) --- */
 typedef struct s_stack
 {
 	t_node			*top;
@@ -49,8 +51,8 @@ typedef struct s_flags
 /* --- 5. Ana Context (Her şeyin başı) --- */
 typedef struct s_ps
 {
-	t_stack			*a;
-	t_stack			*b;
+	t_stack			a;
+	t_stack			b;
 	t_flags			flags;
 	t_op_stats		stats;
 	double			disorder;
