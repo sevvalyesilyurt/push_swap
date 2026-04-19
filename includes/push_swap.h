@@ -8,12 +8,15 @@ typedef struct s_node
 	struct s_node	*next;
 }					t_node;
 
-// bench kısmı struct olucak
-typedef struct s_bench
+typedef struct s_stack
 {
-	float			disorder;
-	char			*strategy;
-	int				total_ops;
+	t_node			*top;
+	int				size;
+}					t_stack;
+
+/* --- 3. İstatistikler (Benchmarking) --- */
+typedef struct s_op_stats
+{
 	int				sa;
 	int				sb;
 	int				ss;
@@ -25,8 +28,33 @@ typedef struct s_bench
 	int				rra;
 	int				rrb;
 	int				rrr;
-	int				is_bench;
-}					t_bench;
+	int				total;
+}					t_op_stats;
+
+/* --- 4. Strateji ve Flagler --- */
+typedef enum e_strategy
+{
+	SIMPLE,
+	MEDIUM,
+	COMPLEX,
+	ADAPTIVE
+}					t_strategy;
+
+typedef struct s_flags
+{
+	int				bench;
+	t_strategy		strategy;
+}					t_flags;
+
+/* --- 5. Ana Context (Her şeyin başı) --- */
+typedef struct s_ps
+{
+	t_stack			*a;
+	t_stack			*b;
+	t_flags			flags;
+	t_op_stats		stats;
+	double			disorder;
+}					t_ps;
 
 // stack yapısı için gerekli fonksiyonlar
 t_node				*new_node(long number);
@@ -37,6 +65,7 @@ void				add_back(t_node **node, t_node *new);
 void				add_front(t_node **node, t_node *new);
 
 // stack'teki işlemler için kullanacağımız fonksiyonlar
+// push
 void				pb(t_node **a, t_node **b, int print);
 void				pa(t_node **b, t_node **a, int print);
 // swap
