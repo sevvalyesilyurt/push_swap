@@ -57,3 +57,5 @@ DİKKAT ET !!!
 * alogirtma değişebilir diye struc değişitirilmedi
 * türk algoritması mantıklı onu deneyebiliriz
 * 
+
+
