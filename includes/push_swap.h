@@ -2,13 +2,20 @@
 # define PUSH_SWAP_H
 
 /* --- 1. Düğüm Yapısı (Singly Linked List) --- */
+
 typedef struct s_node
 {
 	long			nbr;
 	long			index;
-	struct s_node	*next;
-}					t_node;
 
+	int				pos;
+	int				target_pos;
+
+	int				cost_a;
+	int				cost_b;
+
+	struct s_node	*next;
+}	t_node;
 /* --- 2. Stack Yapısı (Meta Veri) --- */
 typedef struct s_stack
 {

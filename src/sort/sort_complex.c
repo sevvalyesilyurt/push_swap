@@ -1,93 +1,104 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sort_complex.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/17 15:56:32 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/17 17:08:39 by sevyesil         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+void	set_cost(t_node *a, t_node *b)
+{
+	int	size_a;
+	int	size_b;
 
+	size_a = ft_lstsize(a);
+	size_b = ft_lstsize(b);
+	while (b)
+	{
+		b->cost_b = b->pos;
+		if (b->pos > size_b / 2)
+			b->cost_b = (size_b - b->pos) * -1;
+		b->cost_a = b->target_pos;
+		if (b->target_pos > size_a / 2)
+			b->cost_a = (size_a - b->target_pos) * -1;
+		b = b->next;
+	}
+}
+
+static void	rotate_stack(t_node **stack, int cost, int is_a)
+{
+	while (cost > 0)
+	{
+		if (is_a)
+			ra(stack);
+		else
+			rb(stack);
+		cost--;
+	}
+	while (cost < 0)
+	{
+		if (is_a)
+			rra(stack);
+		else
+			rrb(stack);
+		cost++;
+	}
+}
+static void	do_rotate(t_node **a, t_node **b, int cost_a, int cost_b)
+{
+	while (cost_a > 0 && cost_b > 0)
+	{
+		rr(a, b);
+		cost_a--;
+		cost_b--;
+	}
+	while (cost_a < 0 && cost_b < 0)
+	{
+		rrr(a, b);
+		cost_a++;
+		cost_b++;
+	}
+	rotate_stack(a, cost_a, 1);
+	rotate_stack(b, cost_b, 0);
+}
 #include "push_swap.h"
 
-void	sort_dispatch(t_node **a, t_node **b)
+void	final_rotate(t_node **a)
 {
 	int	size;
+	int	min_pos;
 
+	set_position(*a);
 	size = ft_lstsize(*a);
-	if (size <= 1)
-		return ;
-	else if (size == 2)
+	min_pos = find_min_pos(*a);
+	if (min_pos <= size / 2)
 	{
-		if ((*a)->nbr> (*a)->next->nbr)
-			sa(a);
+		while (min_pos > 0)
+		{
+			ra(a);
+			min_pos--;
+		}
 	}
-	else if (size == 3)
-		sort_simple(a);
-	else if (size <= 5)
-		sort_small(a, b);
-	else if (size <= 100)
-		sort_medium(a, b);
 	else
-		sort_complex(a, b);
-}
-
-void	sort_simple(t_node **a)
-{
-	int	first;
-	int	second;
-	int	third;
-
-	first = (*a)->nbr;
-	second = (*a)->next->nbr;
-	third = (*a)->next->next->nbr;
-
-	if (first > second && second < third && first < third)
-		sa(a);
-	else if (first > second && second > third)
 	{
-		sa(a);
-		rra(a);
+		min_pos = size - min_pos;
+		while (min_pos > 0)
+		{
+			rra(a);
+			min_pos--;
+		}
 	}
-	else if (first > second && second < third && first > third)
-		ra(a);
-	else if (first < second && second > third && first < third)
-	{
-		sa(a);
-		ra(a);
-	}
-	else if (first < second && second > third && first > third)
-		rra(a);
 }
-
-static	int	find_min(t_node *a)
+void	sort_complex(t_node **a, t_node **b)
 {
-	int	min;
-
-	min = a->nbr;
-	while (a)
-	{
-		if (a->nbr < min)
-			min = a->nbr;
-		a = a->next;
-	}
-	return (min);
-}
-
-void	sort_small(t_node **a, t_node **b)
-{
-	int	min;
-
 	while (ft_lstsize(*a) > 3)
 	{
-		min = find_min(*a);
-		while ((*a)->nbr != min)
-			ra(a);
-		pb(a, b);
+		set_position(*a);
+		set_position(*b);
+		set_target_pos(*a, *b);
+		set_cost(*a, *b);
+		do_cheapest(a, b);
 	}
 	sort_simple(a);
 	while (*b)
-		pa(a, b);
+	{
+		set_position(*a);
+		set_position(*b);
+		set_target_pos(*a, *b);
+		set_cost(*a, *b);
+		do_cheapest(a, b);
+	}
+	final_rotate(a);   // 🔥 EN SON
 }
