@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/21 16:10:52 by sevyesil          #+#    #+#             */
+/*   Updated: 2026/04/24 19:08:47 by sevyesil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+#include <limits.h>
 
 void	set_index(t_node *a)
 {
@@ -24,11 +37,11 @@ void	set_index(t_node *a)
 
 void	set_position(t_node *stack)
 {
-	int	i; 
+	int	i;
 
 	i = 0;
 	if (!stack)
-    	return;
+		return ;
 	while (stack)
 	{
 		stack->pos = i;
@@ -36,11 +49,14 @@ void	set_position(t_node *stack)
 		i++;
 	}
 }
-static int	find_min_pos(t_node *a)
+
+int	find_min_pos(t_node *a)
 {
 	int		min;
 	int		pos;
 
+	if (!a)
+		return (0);
 	min = a->index;
 	pos = a->pos;
 	while (a)
@@ -54,6 +70,7 @@ static int	find_min_pos(t_node *a)
 	}
 	return (pos);
 }
+
 static int	get_target_pos(t_node *a, int b_index)
 {
 	t_node	*tmp;
@@ -76,6 +93,7 @@ static int	get_target_pos(t_node *a, int b_index)
 		target_pos = find_min_pos(a);
 	return (target_pos);
 }
+
 void	set_target_pos(t_node *a, t_node *b)
 {
 	t_node	*tmp;
@@ -87,3 +105,4 @@ void	set_target_pos(t_node *a, t_node *b)
 		tmp = tmp->next;
 	}
 }
+

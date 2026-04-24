@@ -1,4 +1,4 @@
-#include "includes/push_swap.h"
+#include "push_swap.h"
 #include <unistd.h>
 
 static void	swap_node(t_node **src)
@@ -21,6 +21,7 @@ void	sa(t_node **a, int print)
 	if (print)
 		write(1, "sa\n", 3);
 }
+
 void	sb(t_node **b, int print)
 {
 	if (!b || !*b || !(*b)->next)
@@ -29,6 +30,7 @@ void	sb(t_node **b, int print)
 	if (print)
 		write(1, "sb\n", 3);
 }
+
 void	ss(t_node **a, t_node **b, int print)
 {
 	if (!b || !*b || !(*b)->next)

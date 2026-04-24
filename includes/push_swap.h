@@ -89,8 +89,37 @@ void				rrb(t_node **b, int print);
 void				rr(t_node **a, t_node **b, int print);
 void				ra(t_node **a, int print);
 void				rb(t_node **b, int print);
-
 // utils kısmı
 void				error_exit(t_node **a);
+void				free_stack(t_node **stack);
+// sorting
+void				sort_dispatch(t_node **a, t_node **b);
+int					calculate_cost_a(t_node *a, t_node *b);
+int					calculate_cost_b(t_node *b);
+void				sort_simple(t_node **a);
+void				sort_small(t_node **a, t_node **b);
+void				sort_medium(t_node **a, t_node **b);
+void				sort_complex(t_node **a, t_node **b);
+int					find_min_pos(t_node *a);
+
+// sort_utils
+void				set_index(t_node *a);
+void				set_position(t_node *stack);
+void				set_target_pos(t_node *a, t_node *b);
+void				set_cost(t_node *a, t_node *b);
+
+// sort_complex_utils
+void				do_cheapest(t_node **a, t_node **b);
+void				final_rotate(t_node **a);
+
+//parserlar
+
+int					parse_flags(int argc, char **argv);
+void				parse_split(t_node **a, char *str);
+void				free_split(char **split);
+int					ft_strcmp(char *s1, char *s2);
+void				parse_numbers(t_node **a, char *str);
+int					ps_validatestringkontrolu(char *str);
+void				parse_main(t_node **a, int argc, char **argv);
 
 #endif
