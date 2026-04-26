@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 18:13:25 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/26 17:01:30 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/04/26 20:49:50 by ahelman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <unistd.h>
 #include "push_swap.h"
+#include <stdlib.h>
 #include <limits.h>
-#include <stdio.h>
 
 void	free_split(char **split)
 {
@@ -23,7 +21,6 @@ void	free_split(char **split)
 	i = 0;
 	if (!split)
 		return ;
-
 	while (split[i])
 	{
 		free(split[i]);
@@ -37,35 +34,13 @@ int	ft_strcmp(char *s1, char *s2)
 	int	i;
 
 	i = 0;
-	while (s2[i] != '\0' && s1[i] != '\0')
+	while (s1[i] != '\0' && s2[i] != '\0')
 	{
 		if (s1[i] != s2[i])
-		{
 			return (s1[i] - s2[i]);
-		}
 		i++;
 	}
 	return (s1[i] - s2[i]);
-}
-
-void	parse_numbers(t_node **a, char *str)
-{
-	long	number;
-	t_node	*tmp;
-
-	tmp = *a;
-	if (ps_validatestringkontrolu(str) == 0)
-		error_exit(a);
-	number = ft_atoi(str);
-	if (number < INT_MIN || number > INT_MAX)
-		error_exit(a);
-	while (tmp)
-	{
-		if (tmp->nbr == number)
-			error_exit(a);
-		tmp = tmp->next;
-	}
-	add_back(a, new_node((int)number));
 }
 
 int	ps_validatestringkontrolu(char *str)
@@ -73,13 +48,11 @@ int	ps_validatestringkontrolu(char *str)
 	int	i;
 
 	i = 0;
-	if (str == NULL)
+	if (!str || str[0] == '\0')
 		return (0);
-	if (str[0] == '\0')
-		return (0);
-	if (str[0] == '+' || str[0] == '-')
+	if (str[i] == '+' || str[i] == '-')
 		i++;
-	if (ft_strlen(str) <= 1 && (str[0] == '+' || str[0] == '-'))
+	if (str[i] == '\0')
 		return (0);
 	while (str[i] != '\0')
 	{
@@ -88,4 +61,50 @@ int	ps_validatestringkontrolu(char *str)
 		i++;
 	}
 	return (1);
+}
+
+long	ft_atol(const char *str)
+{
+	long	res;
+	int		sign;
+	int		i;
+
+	res = 0;
+	sign = 1;
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = (res * 10) + (str[i] - '0');
+		i++;
+	}
+	return (res * sign);
+}
+
+void	parse_numbers(t_ps *ps, char *str)
+{
+	long	number;
+	t_node	*tmp;
+
+	if (ps_validatestringkontrolu(str) == 0)
+		error_exit(ps);
+	number = ft_atol(str);
+	if (number < INT_MIN || number > INT_MAX)
+		error_exit(ps);
+	tmp = ps->a.top;
+	while (tmp)
+	{
+		if (tmp->nbr == (int)number)
+			error_exit(ps);
+		tmp = tmp->next;
+	}
+	add_back(&(ps->a.top), new_node((int)number));
+	ps->a.size++;
 }

@@ -6,7 +6,7 @@
 typedef struct s_node
 {
 	long			nbr;
-	long			index;
+	int				index;
 
 	int				pos;
 	int				target_pos;
@@ -15,7 +15,7 @@ typedef struct s_node
 	int				cost_b;
 
 	struct s_node	*next;
-}	t_node;
+}					t_node;
 /* --- 2. Stack Yapısı (Meta Veri) --- */
 typedef struct s_stack
 {
@@ -43,10 +43,10 @@ typedef struct s_op_stats
 /* --- 4. Strateji ve Flagler --- */
 typedef enum e_strategy
 {
+	ADAPTIVE,
 	SIMPLE,
 	MEDIUM,
-	COMPLEX,
-	ADAPTIVE
+	COMPLEX
 }					t_strategy;
 
 typedef struct s_flags
@@ -74,23 +74,28 @@ void				add_back(t_node **node, t_node *new);
 void				add_front(t_node **node, t_node *new);
 
 // stack'teki işlemler için kullanacağımız fonksiyonlar
-// push
-void				pb(t_node **a, t_node **b, int print);
-void				pa(t_node **b, t_node **a, int print);
-// swap
-void				sa(t_node **a, int print);
-void				sb(t_node **b, int print);
-void				ss(t_node **a, t_node **b, int print);
-// reverse rotate
-void				rrr(t_node **a, t_node **b, int print);
-void				rra(t_node **a, int print);
-void				rrb(t_node **b, int print);
-// rotate
-void				rr(t_node **a, t_node **b, int print);
-void				ra(t_node **a, int print);
-void				rb(t_node **b, int print);
+// operations
+
+// push (src boşsa çalışmaz)
+void				pa(t_ps *ps);
+void				pb(t_ps *ps);
+
+// swap (size < 2 ise çalışmaz)
+void				sa(t_ps *ps);
+void				sb(t_ps *ps);
+void				ss(t_ps *ps);
+
+// rotate (size < 2 ise çalışmaz)
+void				ra(t_ps *ps);
+void				rb(t_ps *ps);
+void				rr(t_ps *ps);
+
+// reverse rotate (size < 2 ise çalışmaz)
+void				rra(t_ps *ps);
+void				rrb(t_ps *ps);
+void				rrr(t_ps *ps);
 // utils kısmı
-void				error_exit(t_node **a);
+void				error_exit(t_ps *ps);
 void				free_stack(t_node **stack);
 // sorting
 void				sort_dispatch(t_node **a, t_node **b);
@@ -101,9 +106,7 @@ void				sort_small(t_node **a, t_node **b);
 void				sort_medium(t_node **a, t_node **b);
 void				sort_complex(t_node **a, t_node **b);
 int					find_min_pos(t_node *a);
-int					find_pos(t_node *a, int i);
-int					push_target(t_node **a, t_node **b, int i);
-void				bring_to_top(t_node **a, int pos, int size);
+
 // sort_utils
 void				set_index(t_node *a);
 void				set_position(t_node *stack);
@@ -114,14 +117,16 @@ void				set_cost(t_node *a, t_node *b);
 void				do_cheapest(t_node **a, t_node **b);
 void				final_rotate(t_node **a);
 
-//parserlar
+// parserlar
+int					parse_flags(t_ps *ps, int argc, char **argv);
+void				parse_split(t_ps *ps, char *str);
+void				parse_main(t_ps *ps, int argc, char **argv);
 
-int					parse_flags(int argc, char **argv);
-void				parse_split(t_node **a, char *str);
 void				free_split(char **split);
+long				ft_atol(const char *str);
 int					ft_strcmp(char *s1, char *s2);
-void				parse_numbers(t_node **a, char *str);
+
 int					ps_validatestringkontrolu(char *str);
-void				parse_main(t_node **a, int argc, char **argv);
+void				parse_numbers(t_ps *ps, char *str);
 
 #endif

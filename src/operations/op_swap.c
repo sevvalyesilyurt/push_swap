@@ -1,45 +1,59 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   op_swap.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/25 21:14:19 by ahelman           #+#    #+#             */
+/*   Updated: 2026/04/26 19:46:27 by ahelman          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <unistd.h>
 
-static void	swap_node(t_node **src)
+static void	swap_node(t_stack *stack)
 {
-	t_node	*tmp;
+	t_node	*first;
+	t_node	*second;
 
-	if (!src || !*src || !(*src)->next)
+	if (!stack || stack->size < 2)
 		return ;
-	tmp = (*src)->next;
-	(*src)->next = (*src)->next->next;
-	tmp->next = (*src);
-	*src = tmp;
+	first = stack->top;
+	second = stack->top->next;
+	first->next = second->next;
+	second->next = first;
+	stack->top = second;
 }
 
-void	sa(t_node **a, int print)
+void	sa(t_ps *ps)
 {
-	if (!a || !*a || !(*a)->next)
+	if (!ps || ps->a.size < 2)
 		return ;
-	swap_node(a);
-	if (print)
-		write(1, "sa\n", 3);
+	swap_node(&ps->a);
+	write(1, "sa\n", 3);
+	ps->stats.sa++;
+	ps->stats.total++;
 }
 
-void	sb(t_node **b, int print)
+void	sb(t_ps *ps)
 {
-	if (!b || !*b || !(*b)->next)
+	if (!ps || ps->b.size < 2)
 		return ;
-	swap_node(b);
-	if (print)
-		write(1, "sb\n", 3);
+	swap_node(&ps->b);
+	write(1, "sb\n", 3);
+	ps->stats.sb++;
+	ps->stats.total++;
 }
 
-void	ss(t_node **a, t_node **b, int print)
+void	ss(t_ps *ps)
 {
-	if (!b || !*b || !(*b)->next)
+	if (!ps || (ps->a.size < 2 && ps->b.size < 2))
 		return ;
-	if (!a || !*a || !(*a)->next)
-		return ;
-	swap_node(a);
-	swap_node(b);
-	if (print)
-		write(1, "ss\n", 3);
+	swap_node(&ps->a);
+	swap_node(&ps->b);
+	write(1, "ss\n", 3);
+	ps->stats.ss++;
+	ps->stats.total++;
 }
-// print bench için eklendi, yazdrıma durmunu kontrol etmek için

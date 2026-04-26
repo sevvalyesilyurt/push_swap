@@ -1,48 +1,64 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   op_rev_rotate.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/25 21:16:13 by ahelman           #+#    #+#             */
+/*   Updated: 2026/04/26 19:45:47 by ahelman          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <unistd.h>
 
-static void	reverse_rotate_node(t_node **src)
+static void	rev_rotate_node(t_stack *stack)
 {
-	t_node	*new_start;
-	t_node	*new_end;
+	t_node	*prev;
+	t_node	*last;
 
-	if (!src || !*src || !(*src)->next)
+	if (!stack || stack->size < 2)
 		return ;
-	new_start = last_node(*src);
-	new_end = (*src);
-	while (new_end->next->next)
-		new_end = new_end->next;
-	new_end->next = NULL;
-	new_start->next = (*src);
-	*src = new_start;
+	prev = NULL;
+	last = stack->top;
+	while (last->next)
+	{
+		prev = last;
+		last = last->next;
+	}
+	prev->next = NULL;
+	last->next = stack->top;
+	stack->top = last;
 }
 
-void	rrr(t_node **a, t_node **b, int print)
+void	rra(t_ps *ps)
 {
-	if (!a || !*a || !(*a)->next)
+	if (!ps || ps->a.size < 2)
 		return ;
-	if (!b || !*b || !(*b)->next)
-		return ;
-	reverse_rotate_node(a);
-	reverse_rotate_node(b);
-	if (print)
-		write(1, "rrr\n", 4);
+	rev_rotate_node(&ps->a);
+	write(1, "rra\n", 4);
+	ps->stats.rra++;
+	ps->stats.total++;
 }
 
-void	rra(t_node **a, int print)
+void	rrb(t_ps *ps)
 {
-	if (!a || !*a || !(*a)->next)
+	if (!ps || ps->b.size < 2)
 		return ;
-	reverse_rotate_node(a);
-	if (print)
-		write(1, "rra\n", 4);
+	rev_rotate_node(&ps->b);
+	write(1, "rrb\n", 4);
+	ps->stats.rrb++;
+	ps->stats.total++;
 }
 
-void	rrb(t_node **b, int print)
+void	rrr(t_ps *ps)
 {
-	if (!b || !*b || !(*b)->next)
+	if (!ps || (ps->a.size < 2 && ps->b.size < 2))
 		return ;
-	reverse_rotate_node(b);
-	if (print)
-		write(1, "rrb\n", 4);
+	rev_rotate_node(&ps->a);
+	rev_rotate_node(&ps->b);
+	write(1, "rrr\n", 4);
+	ps->stats.rrr++;
+	ps->stats.total++;
 }
