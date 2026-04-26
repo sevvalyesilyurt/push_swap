@@ -6,7 +6,7 @@
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 19:01:56 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/24 18:24:25 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/04/26 17:02:41 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,10 @@ void	parse_main(t_node **a, int argc, char **argv)
 		parse_split(a, argv[i]);
 		i++;
 	}
+	t_node *tmp = *a;
+while (tmp)
+{
+	printf("VAL: %ld\n", tmp->nbr);
+	tmp = tmp->next;
+}
 }

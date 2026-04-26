@@ -6,24 +6,25 @@
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 16:18:38 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/24 18:39:39 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/04/26 17:41:51 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	find_min(t_node *a)
+int	find_pos(t_node *a, int i)
 {
-	int	min;
+	int pos;
 
-	min = a->nbr;
+	pos = 0;
 	while (a)
 	{
-		if (a->nbr < min)
-			min = a->nbr;
+		if (a->index == i)
+			return (pos);
 		a = a->next;
+		pos++;
 	}
-	return (min);
+	return (-1);
 }
 
 void	sort_simple(t_node **a)
@@ -55,43 +56,24 @@ void	sort_simple(t_node **a)
 
 void	sort_small(t_node **a, t_node **b)
 {
-	int	min;
+	int	min_pos;
+	int	size;
 
 	while (size_node(*a) > 3)
 	{
-		min = find_min(*a);
-		while ((*a)->nbr != min)
-			ra(a, 1);
+		min_pos = find_min_pos(*a);
+		size = size_node(*a);
+
+		if (min_pos <= size / 2)
+			while (min_pos--)
+				ra(a, 1);
+		else
+			while (size - min_pos++)
+				rra(a, 1);
+
 		pb(a, b, 1);
 	}
 	sort_simple(a);
-	while (*b)
-		pa(a, b, 1);
-}
-
-
-void	sort_medium(t_node **a, t_node **b)
-{
-	int	size;
-	int	min_pos;
-
-	while (*a)
-	{
-		size = size_node(*a);
-		min_pos = find_min_pos(*a);
-		if (min_pos <= size / 2)
-		{
-			while (min_pos-- > 0)
-				ra(a, 1);
-		}
-		else
-		{
-			min_pos = size - min_pos;
-			while (min_pos-- > 0)
-				rra(a, 1);
-		}
-		pb(a, b, 1);
-	}
 	while (*b)
 		pa(a, b, 1);
 }

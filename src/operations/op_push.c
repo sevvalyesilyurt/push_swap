@@ -22,7 +22,7 @@ void	pb(t_node **a, t_node **b, int print)
 		write(1, "pb\n", 3);
 }
 
-void	pa(t_node **b, t_node **a, int print)
+void	pa(t_node **a, t_node **b, int print)
 {
 	if (!b || !*b)
 		return ;

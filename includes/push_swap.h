@@ -101,7 +101,9 @@ void				sort_small(t_node **a, t_node **b);
 void				sort_medium(t_node **a, t_node **b);
 void				sort_complex(t_node **a, t_node **b);
 int					find_min_pos(t_node *a);
-
+int					find_pos(t_node *a, int i);
+int					push_target(t_node **a, t_node **b, int i);
+void				bring_to_top(t_node **a, int pos, int size);
 // sort_utils
 void				set_index(t_node *a);
 void				set_position(t_node *stack);
