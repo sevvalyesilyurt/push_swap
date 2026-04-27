@@ -6,7 +6,7 @@
 /*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 19:01:56 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/27 00:43:32 by ahelman          ###   ########.fr       */
+/*   Updated: 2026/04/27 20:02:04 by ahelman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,22 @@ int	parse_flags(t_ps *ps, int argc, char **argv)
 	int	i;
 
 	i = 1;
-	while (i < argc && argv[i][0] == '-')
+	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
 	{
-		if (argv[i][1] == '\0')
+		if (argv[i][2] == '\0')
 			error_exit(ps);
-		if (ft_strcmp(argv[i], "--debug") == 0)
+		if (ft_strcmp(argv[i], "--bench") == 0)
 			ps->flags.bench = 1;
-		else if (ft_strcmp(argv[i], "-v") == 0)
-			ps->flags.strategy = 0;
+		else if (ft_strcmp(argv[i], "--adaptive") == 0)
+			ps->flags.strategy = ADAPTIVE;
+		else if (ft_strcmp(argv[i], "--simple") == 0)
+			ps->flags.strategy = SIMPLE;
+		else if (ft_strcmp(argv[i], "--medium") == 0)
+			ps->flags.strategy = MEDIUM;
+		else if (ft_strcmp(argv[i], "--complex") == 0)
+			ps->flags.strategy = COMPLEX;
 		else
-			break ;
+			error_exit(ps);
 		i++;
 	}
 	return (i);

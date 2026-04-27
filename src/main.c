@@ -18,12 +18,12 @@ void compute_disorder(t_ps *ps)
 	double mistakes;
 	double total_pairs;
 
-	i_node = ps->a.top;
-	j_node = ps->a.top->next;
 	mistakes = 0;
 	total_pairs = 0;
-	while (i_node && j_node)
+	i_node = ps->a.top;
+	while (i_node && i_node->next)
 	{
+		j_node = i_node->next;
 		while (j_node)
 		{
 			total_pairs++;
@@ -38,6 +38,17 @@ void compute_disorder(t_ps *ps)
 	else
 		ps->disorder = 0;
 }
+void	select_strategy(t_ps *ps)
+{
+	if (ps->flags.strategy != ADAPTIVE)
+		return ;
+	if (ps->disorder < 0.2)
+		ps->flags.strategy = SIMPLE;
+	else if (ps->disorder >= 0.2 && ps->disorder < 0.5)
+		ps->flags.strategy = MEDIUM;
+	else if (ps->disorder >= 0.5)
+		ps->flags.strategy = COMPLEX;
+}
 
 int	main(int argc, char **argv)
 {
@@ -46,13 +57,14 @@ int	main(int argc, char **argv)
 	ps = (t_ps){0};
 	if (argc < 2)
 		return (0);
-	parse_main(&ps.a.top, argc, argv);
+	parse_main(&ps, argc, argv);
 	if (is_sorted(ps.a.top))
 	{
 		free_stack(&ps.a.top);
 		return (0);
 	}
 	compute_disorder(&ps);// disorder ölçen fonksiyon
+	select_strategy(&ps); // strateji seçen fonksiyon
 	set_index(ps.a.top); // buraya kadar değiştirdim yapıları ps için uygun hale getircem
 	sort_dispatch(&ps.a.top, &ps.b.top);
 	free_stack(&ps.a.top);

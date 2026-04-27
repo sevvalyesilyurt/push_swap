@@ -51,3 +51,10 @@ checker tarafı.
 
 `utils`
 hata, atol, yardımcı fonksiyonlar.
+
+# KAYNAKLAR
+
+[CS 1332 Data Structures & Algorithms Visualization Tool](https://csvistool.com/)
+
+[Push_Swap Turk algorithm explained in 6 steps](https://pure-forest.medium.com/push-swap-turk-algorithm-explained-in-6-steps-4c6650a458c0)
+
