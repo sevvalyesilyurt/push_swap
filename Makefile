@@ -19,6 +19,7 @@ $(SRC_DIR)/operations/op_swap.c \
 $(SRC_DIR)/operations/op_rotate.c \
 $(SRC_DIR)/operations/op_rev_rotate.c \
 $(SRC_DIR)/sort/sort_dispatch.c \
+$(SRC_DIR)/sort/sort_medium.c \
 $(SRC_DIR)/sort/sorting.c \
 $(SRC_DIR)/sort/sort_utils.c \
 $(SRC_DIR)/sort/sort_complex_utils.c \
@@ -37,7 +38,7 @@ INCLUDES = -I$(INC_DIR) -I$(LIBFT_DIR)
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME) -lm
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)

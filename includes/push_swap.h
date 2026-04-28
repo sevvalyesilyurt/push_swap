@@ -98,13 +98,13 @@ void				rrr(t_ps *ps);
 void				error_exit(t_ps *ps);
 void				free_stack(t_node **stack);
 // sorting
-void				sort_dispatch(t_node **a, t_node **b);
+void				sort_dispatch(t_ps *ps);
 int					calculate_cost_a(t_node *a, t_node *b);
 int					calculate_cost_b(t_node *b);
-void				sort_simple(t_node **a);
-void				sort_small(t_node **a, t_node **b);
-void				sort_medium(t_node **a, t_node **b);
-void				sort_complex(t_node **a, t_node **b);
+void				sort_simple(t_ps *ps);
+void				sort_small(t_ps *ps);
+void				sort_medium(t_ps *ps);
+void				sort_complex(t_ps *ps);
 int					find_min_pos(t_node *a);
 
 // sort_utils
@@ -114,8 +114,8 @@ void				set_target_pos(t_node *a, t_node *b);
 void				set_cost(t_node *a, t_node *b);
 
 // sort_complex_utils
-void				do_cheapest(t_node **a, t_node **b);
-void				final_rotate(t_node **a);
+void				do_cheapest(t_ps *ps);
+void				final_rotate(t_ps *ps);
 
 // parserlar
 int					parse_flags(t_ps *ps, int argc, char **argv);
