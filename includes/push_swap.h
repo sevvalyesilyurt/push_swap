@@ -99,8 +99,6 @@ void				error_exit(t_ps *ps);
 void				free_stack(t_node **stack);
 // sorting
 void				sort_dispatch(t_ps *ps);
-int					calculate_cost_a(t_node *a, t_node *b);
-int					calculate_cost_b(t_node *b);
 void				sort_simple(t_ps *ps);
 void				sort_small(t_ps *ps);
 void				sort_medium(t_ps *ps);

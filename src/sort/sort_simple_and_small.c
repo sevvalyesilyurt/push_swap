@@ -1,41 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/21 16:18:38 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/28 20:33:55 by sevyesil         ###   ########.fr       */
+/*   Created: 2026/04/21 16:10:52 by sevyesil          #+#    #+#             */
+/*   Updated: 2026/04/29 00:02:35 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <math.h>
-
-int	find_min_pos(t_node *a)
-{
-	int		min;
-	int		pos;
-	int		i;
-
-	if (!a)
-		return (0);
-	min = a->nbr;
-	pos = 0;
-	i = 0;
-	while (a)
-	{
-		if (a->nbr < min)
-		{
-			min = a->nbr;
-			pos = i;
-		}
-		a = a->next;
-		i++;
-	}
-	return (pos);
-}
 
 void	sort_simple(t_ps *ps)
 {

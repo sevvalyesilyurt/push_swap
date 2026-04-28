@@ -21,9 +21,8 @@ $(SRC_DIR)/operations/op_rev_rotate.c \
 $(SRC_DIR)/sort/sort_dispatch.c \
 $(SRC_DIR)/sort/sort_medium.c \
 $(SRC_DIR)/sort/sort_complex.c \
-$(SRC_DIR)/sort/sorting.c \
-$(SRC_DIR)/sort/sort_utils.c \
 $(SRC_DIR)/sort/sort_complex_utils.c \
+$(SRC_DIR)/sort/sort_simple_and_small.c \
 $(SRC_DIR)/utils/error.c \
 $(SRC_DIR)/stack/add_back.c \
 $(SRC_DIR)/stack/add_front.c \
