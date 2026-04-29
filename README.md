@@ -136,15 +136,6 @@ Her fonksiyon, ilgili stack üzerinde doğrudan işlem yapar ve gerektiğinde ek
 - **compute_disorder:**
   - `void compute_disorder(t_ps *ps)`: Listenin karışıklık oranını hesaplar ve algoritma seçimini etkiler.
 
-### 6. Checker (Bonus)
-
-- **checker_main_bonus.c ve diğerleri:**
-  - `int main(int argc, char **argv)`: push_swap’ın ürettiği komutları okur, verilen input üzerinde uygular ve sonucun doğru olup olmadığını kontrol eder.
-  - `void checker_exec(t_ps *ps)`: Komutları uygular.
-  - `void checker_parse(t_ps *ps, int argc, char **argv)`: Argümanları ayrıştırır.
-  - `void checker_read(t_ps *ps)`: Komutları okur.
-  - `void checker_utils(t_ps *ps)`: Yardımcı fonksiyonlar.
-
 ---
 
 ## Kaynaklar
