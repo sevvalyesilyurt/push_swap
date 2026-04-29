@@ -1,6 +1,6 @@
+*This project has been created as part of the 42 curriculum by sevyesil, ahelman.*
 # push_swap
 
-*This project has been created as part of the 42 curriculum by sevyesil.*
 
 ## Açıklama
 
@@ -23,13 +23,7 @@ Projeyi derlemek için:
 
 ```bash
 make
-```
-
-Bonus (checker) programını derlemek için:
-
-```bash
-make bonus
-```
+``` 
 
 Oluşturulan obje dosyalarını silmek için:
 
@@ -164,6 +158,6 @@ Her fonksiyon, ilgili stack üzerinde doğrudan işlem yapar ve gerektiğinde ek
 
 ## AI Kullanımı
 
-Bu proje geliştirilirken yapay zekâ araçları yalnızca kavramsal anlamayı desteklemek ve kod gözden geçirme amacıyla kullanılmıştır. Tüm algoritma tasarımı ve kod yazımı sevyesil tarafından gerçekleştirilmiştir. Proje, 42 akademik dürüstlük kurallarına uygun olarak hazırlanmıştır.
+Bu proje geliştirilirken yapay zekâ araçları yalnızca kavramsal anlamayı desteklemek ve kod gözden geçirme amacıyla kullanılmıştır. Tüm algoritma tasarımı ve kod yazımı sevyesil ve ahelman tarafından gerçekleştirilmiştir. Proje, 42 akademik dürüstlük kurallarına uygun olarak hazırlanmıştır.
 
 ---

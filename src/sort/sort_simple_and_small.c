@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_simple_and_small.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 16:10:52 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/29 13:39:29 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/04/29 16:14:14 by ahelman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	sort_simple(t_ps *ps)
 		pa(ps);
 }
 
-void	sort_small(t_ps *ps)
+static void	sort_three(t_ps *ps)
 {
 	int	a;
 	int	b;
@@ -65,4 +65,17 @@ void	sort_small(t_ps *ps)
 	}
 	else if (a < b && b > c && a > c)
 		rra(ps);
+}
+
+void	sort_small(t_ps *ps)
+{
+	if (ps->a.size < 2)
+		return ;
+	if (ps->a.size == 2)
+	{
+		if (ps->a.top->nbr > ps->a.top->next->nbr)
+			sa(ps);
+		return ;
+	}
+	sort_three(ps);
 }

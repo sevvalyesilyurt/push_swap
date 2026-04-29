@@ -23,6 +23,9 @@ SRC = \
 	$(SRC_DIR)/utils/helper_functions.c \
 	$(SRC_DIR)/utils/stack_operations.c \
 	$(SRC_DIR)/utils/ft_split.c \
+	$(SRC_DIR)/bench/bench_print.c\
+	$(SRC_DIR)/bench/bench_utils.c
+	
 
 BONUS_SRC = \
 	$(BONUS_DIR)/checker_main_bonus.c \

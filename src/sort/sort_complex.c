@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_complex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 20:32:10 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/29 13:38:35 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/04/29 14:52:52 by ahelman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ void	set_target_pos(t_node *a, t_node *b)
 
 void	sort_complex(t_ps *ps)
 {
-	pb(ps);
-	pb(ps);
 	while (ps->a.size > 3)
 		pb(ps);
 	sort_small(ps);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 13:40:50 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/29 13:40:53 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/04/29 17:08:57 by ahelman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef enum e_strategy
 typedef struct s_flags
 {
 	int				bench;
+	int				adaptive;
 	t_strategy		strategy;
 }					t_flags;
 
@@ -113,6 +114,9 @@ int					stack_is_sorted(t_node *a);
 char				**ft_split(char const *s, char c);
 long				ft_atol(const char *str);
 int					ft_strcmp(char *s1, char *s2);
+void				ft_putnbr_fd(int n, int fd);
+void				ft_putstr_fd(char *s, int fd);
+
 // sorting
 void				sort_dispatch(t_ps *ps);
 void				sort_simple(t_ps *ps);
@@ -120,6 +124,9 @@ void				sort_small(t_ps *ps);
 void				sort_medium(t_ps *ps);
 void				sort_complex(t_ps *ps);
 int					find_min_pos(t_node *a);
+
+// bench
+void				print_bench(t_ps *ps);
 
 // sort_utils
 void				set_index(t_node *a);
