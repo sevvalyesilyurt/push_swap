@@ -9,7 +9,6 @@ OBJ_DIR = obj
 
 SRC = \
 	$(SRC_DIR)/main.c \
-	$(SRC_DIR)/parse/ft_split.c \
 	$(SRC_DIR)/parse/parse_main.c \
 	$(SRC_DIR)/parse/parse_utils.c \
 	$(SRC_DIR)/sort/sort_complex_utils.c \
@@ -23,6 +22,7 @@ SRC = \
 	$(SRC_DIR)/operations/op_swap.c \
 	$(SRC_DIR)/utils/helper_functions.c \
 	$(SRC_DIR)/utils/stack_operations.c \
+	$(SRC_DIR)/utils/ft_split.c \
 
 BONUS_SRC = \
 	$(BONUS_DIR)/checker_main_bonus.c \

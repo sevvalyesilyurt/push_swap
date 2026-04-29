@@ -6,7 +6,7 @@
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 16:27:16 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/29 11:34:17 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/04/29 13:38:05 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,3 @@ int	find_min_pos(t_node *a)
 	}
 	return (pos);
 }
-

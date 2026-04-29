@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/29 13:40:50 by sevyesil          #+#    #+#             */
+/*   Updated: 2026/04/29 13:40:53 by sevyesil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -99,6 +111,8 @@ void				error_exit(t_ps *ps);
 void				free_stack(t_node **stack);
 int					stack_is_sorted(t_node *a);
 char				**ft_split(char const *s, char c);
+long				ft_atol(const char *str);
+int					ft_strcmp(char *s1, char *s2);
 // sorting
 void				sort_dispatch(t_ps *ps);
 void				sort_simple(t_ps *ps);
@@ -122,7 +136,7 @@ int					parse_flags(t_ps *ps, int argc, char **argv);
 void				parse_split(t_ps *ps, char *str);
 void				parse_main(t_ps *ps, int argc, char **argv);
 
-void				free_split(char **split);
+void				parse_free_split(char **split);
 long				ft_atol(const char *str);
 int					ft_strcmp(char *s1, char *s2);
 

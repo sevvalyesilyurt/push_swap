@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sevyesil <sevyesil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/22 15:03:40 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/02/17 04:40:44 by sevyesil         ###   ########.fr       */
+/*   Created: 2026/04/09 21:28:19 by sevyesil          #+#    #+#             */
+/*   Updated: 2026/04/29 13:09:54 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 #include <stdlib.h>
+#include <unistd.h>
 
 static int	word_len(const unsigned char *str, char c)
 {
@@ -22,7 +24,7 @@ static int	word_len(const unsigned char *str, char c)
 	return (len);
 }
 
-static void	free_split(char **dest, int j)
+static	void	free_split(char **dest, int j)
 {
 	int	i;
 

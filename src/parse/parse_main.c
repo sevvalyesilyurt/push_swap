@@ -6,7 +6,7 @@
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 19:01:56 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/29 10:49:10 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/04/29 12:38:45 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	parse_split(t_ps *ps, char *str)
 	new_str = ft_split(str, ' ');
 	if (!new_str || !new_str[0])
 	{
-		free_split(new_str);
+		parse_free_split(new_str);
 		error_exit(ps);
 	}
 	while (new_str[j])
@@ -58,7 +58,7 @@ void	parse_split(t_ps *ps, char *str)
 		parse_numbers(ps, new_str[j]);
 		j++;
 	}
-	free_split(new_str);
+	parse_free_split(new_str);
 }
 
 void	parse_main(t_ps *ps, int argc, char **argv)

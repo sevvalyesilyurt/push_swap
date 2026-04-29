@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_operations.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/29 13:39:55 by sevyesil          #+#    #+#             */
+/*   Updated: 2026/04/29 13:40:23 by sevyesil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stdlib.h>
 
@@ -9,7 +21,7 @@ t_node	*new_node(long number)
 	if (!new_node)
 		return (NULL);
 	new_node->nbr = number;
-	new_node->index = 0; 
+	new_node->index = 0;
 	new_node->next = NULL;
 	return (new_node);
 }

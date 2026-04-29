@@ -6,7 +6,7 @@
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 20:32:10 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/29 02:38:41 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/04/29 13:38:35 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,10 @@ void	set_cost(t_node *a, t_node *b)
 			b->cost_b = b->pos;
 		else
 			b->cost_b = (b->pos - size_b);
-
 		if (b->target_pos <= size_a / 2)
 			b->cost_a = b->target_pos;
 		else
 			b->cost_a = (b->target_pos - size_a);
-
 		b = b->next;
 	}
 }
