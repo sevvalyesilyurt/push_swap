@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*   sort_simple_and_small.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 16:10:52 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/29 00:02:35 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/04/29 11:34:16 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	sort_simple(t_ps *ps)
 {
 	int	min_pos;
 	int	size;
-
 	while (ps->a.size > 0)
 	{
 		min_pos = find_min_pos(ps->a.top);
@@ -31,6 +30,10 @@ void	sort_simple(t_ps *ps)
 			min_pos = size - min_pos;
 			while (min_pos-- > 0)
 				rra(ps);
+		}
+		if (stack_is_sorted(ps->a.top) == 1 && ps->b.size == 0)
+		{
+			return ;
 		}
 		pb(ps);
 	}

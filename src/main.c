@@ -1,17 +1,6 @@
 #include "push_swap.h"
 #include <unistd.h>
 
-static int	is_sorted(t_node *a)
-{
-	while (a && a->next)
-	{
-		if (a->nbr > a->next->nbr)
-			return (0);
-		a = a->next;
-	}
-	return (1);
-}
-
 void	compute_disorder(t_ps *ps)
 {
 	t_node	*i_node;
@@ -60,25 +49,16 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	parse_main(&ps, argc, argv);
-	if (is_sorted(ps.a.top))
+	if (stack_is_sorted(ps.a.top))
 	{
 		free_stack(&ps.a.top);
 		return (0);
 	}
-	compute_disorder(&ps);// disorder ölçen fonksiyon
-	select_strategy(&ps); // strateji seçen fonksiyon
-	set_index(ps.a.top); // buraya kadar değiştirdim yapıları ps için uygun hale getircem
+	compute_disorder(&ps);
+	select_strategy(&ps);
+	set_index(ps.a.top);
 	sort_dispatch(&ps);
 	free_stack(&ps.a.top);
 	free_stack(&ps.b.top);
 	return (0);
 }
-/*
-örnek flagler
-./push_swap 3 2 1
-./push_swap --simple 3 2 1
-./push_swap --medium 3 2 1
-./push_swap --complex 3 2 1
-./push_swap --adaptive 3 2 1
-./push_swap --bench --adaptive 3 2 1
-*/

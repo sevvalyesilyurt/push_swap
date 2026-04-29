@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   helper_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 21:28:19 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/26 20:59:18 by ahelman          ###   ########.fr       */
+/*   Updated: 2026/04/29 11:30:28 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-void	free_stack(t_node **stack)
+void	free_stack(t_node **node)
 {
-	t_node	*tmp;
+	t_node	*temp;
+	t_node	*next;
 
-	if (!stack || !*stack)
+	if (!node)
 		return ;
-	while (*stack)
+	temp = *node;
+	while (temp)
 	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
+		next = temp->next;
+		free(temp);
+		temp = next;
 	}
-	*stack = NULL;
+	*node = NULL;
 }
 
 void	error_exit(t_ps *ps)

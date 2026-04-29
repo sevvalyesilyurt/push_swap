@@ -97,6 +97,8 @@ void				rrr(t_ps *ps);
 // utils kısmı
 void				error_exit(t_ps *ps);
 void				free_stack(t_node **stack);
+int					stack_is_sorted(t_node *a);
+char				**ft_split(char const *s, char c);
 // sorting
 void				sort_dispatch(t_ps *ps);
 void				sort_simple(t_ps *ps);
@@ -124,7 +126,7 @@ void				free_split(char **split);
 long				ft_atol(const char *str);
 int					ft_strcmp(char *s1, char *s2);
 
-int					ps_validatestringkontrolu(char *str);
+int					ps_validate_string_control(char *str);
 void				parse_numbers(t_ps *ps, char *str);
 
 #endif

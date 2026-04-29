@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 18:13:25 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/26 20:49:50 by ahelman          ###   ########.fr       */
+/*   Updated: 2026/04/29 10:40:06 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-int	ps_validatestringkontrolu(char *str)
+int	ps_validate_string_control(char *str)
 {
 	int	i;
 
@@ -93,7 +93,7 @@ void	parse_numbers(t_ps *ps, char *str)
 	long	number;
 	t_node	*tmp;
 
-	if (ps_validatestringkontrolu(str) == 0)
+	if (ps_validate_string_control(str) == 0)
 		error_exit(ps);
 	number = ft_atol(str);
 	if (number < INT_MIN || number > INT_MAX)
