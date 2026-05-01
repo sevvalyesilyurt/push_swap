@@ -6,11 +6,10 @@
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 16:13:38 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/28 20:35:47 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/05/01 19:09:16 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "push_swap.h"
 #include <limits.h>
 

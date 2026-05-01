@@ -6,13 +6,11 @@
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 21:28:19 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/29 13:09:54 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/05/01 19:08:10 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include <stdlib.h>
-#include <unistd.h>
 
 static int	word_len(const unsigned char *str, char c)
 {
