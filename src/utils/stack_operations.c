@@ -6,7 +6,7 @@
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 13:39:55 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/29 13:40:23 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/05/02 02:59:08 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,6 @@ t_node	*new_node(long number)
 	new_node->index = 0;
 	new_node->next = NULL;
 	return (new_node);
-}
-
-int	size_node(t_node *node)
-{
-	int	size;
-
-	size = 0;
-	while (node)
-	{
-		node = node->next;
-		size++;
-	}
-	return (size);
 }
 
 t_node	*last_node(t_node *lst)

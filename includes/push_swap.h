@@ -6,7 +6,7 @@
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 13:40:50 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/05/01 19:12:31 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/05/02 03:37:57 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ typedef struct s_ps
 
 t_node				*new_node(long number);
 t_node				*last_node(t_node *lst);
-int					size_node(t_node *node);
 void				free_stack(t_node **node);
 void				add_back(t_node **node, t_node *new);
 void				add_front(t_node **node, t_node *new);
@@ -99,7 +98,6 @@ void				error_exit(t_ps *ps);
 void				free_stack(t_node **stack);
 int					stack_is_sorted(t_node *a);
 char				**ft_split(char const *s, char c);
-long				ft_atol(const char *str);
 int					ft_strcmp(char *s1, char *s2);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
@@ -115,21 +113,14 @@ void				print_bench(t_ps *ps);
 
 void				set_index(t_node *a);
 void				set_position(t_node *stack);
-void				set_target_pos(t_node *a, t_node *b);
-void				set_cost(t_node *a, t_node *b);
-
 void				do_cheapest(t_ps *ps);
 void				final_rotate(t_ps *ps);
 
-int					parse_flags(t_ps *ps, int argc, char **argv);
-void				parse_split(t_ps *ps, char *str);
 void				parse_main(t_ps *ps, int argc, char **argv);
-
 void				parse_free_split(char **split);
-long				ft_atol(const char *str);
-int					ft_strcmp(char *s1, char *s2);
-
 int					ps_validate_string_control(char *str);
 void				parse_numbers(t_ps *ps, char *str);
+
+int					ft_strcmp(char *s1, char *s2);
 
 #endif

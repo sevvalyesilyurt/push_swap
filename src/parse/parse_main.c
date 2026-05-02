@@ -6,14 +6,14 @@
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 19:01:56 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/05/01 19:11:18 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/05/02 03:33:36 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
 
-int	parse_flags(t_ps *ps, int argc, char **argv)
+static	int	parse_flags(t_ps *ps, int argc, char **argv)
 {
 	int	i;
 
@@ -39,7 +39,7 @@ int	parse_flags(t_ps *ps, int argc, char **argv)
 	return (i);
 }
 
-void	parse_split(t_ps *ps, char *str)
+static	void	parse_split(t_ps *ps, char *str)
 {
 	char	**new_str;
 	int		j;

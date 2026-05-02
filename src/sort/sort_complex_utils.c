@@ -6,7 +6,7 @@
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 16:13:38 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/05/01 19:09:16 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/05/02 03:00:45 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	final_rotate(t_ps *ps)
 	int	min_pos;
 
 	set_position(ps->a.top);
-	size = size_node(ps->a.top);
+	size = ps->a.size;
 	min_pos = find_min_pos(ps->a.top);
 	if (min_pos <= size / 2)
 	{

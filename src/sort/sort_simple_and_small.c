@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_simple_and_small.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 16:10:52 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/29 16:14:14 by ahelman          ###   ########.fr       */
+/*   Updated: 2026/05/02 03:37:30 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,34 @@ static void	sort_three(t_ps *ps)
 		rra(ps);
 }
 
+static	void	sort_five_number(t_ps *ps)
+{
+	int	min;
+
+	min = 0;
+	while (ps->a.size > 3)
+	{
+		min = find_min_pos(ps->a.top);
+		if (min <= ps->a.size / 2)
+		{
+			while (min--)
+				ra(ps);
+			pb(ps);
+		}
+		else
+		{
+			while (min-- && find_min_pos(ps->a.top) != 0)
+				rra(ps);
+			pb(ps);
+		}
+	}
+	sort_three(ps);
+	while (ps->b.size > 0)
+	{
+		pa(ps);
+	}
+}
+
 void	sort_small(t_ps *ps)
 {
 	if (ps->a.size < 2)
@@ -77,5 +105,14 @@ void	sort_small(t_ps *ps)
 			sa(ps);
 		return ;
 	}
-	sort_three(ps);
+	if (ps->a.size == 3)
+	{
+		sort_three(ps);
+		return ;
+	}
+	if (ps->a.size <= 5)
+	{
+		sort_five_number(ps);
+		return ;
+	}
 }

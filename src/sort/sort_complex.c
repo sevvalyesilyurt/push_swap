@@ -3,34 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   sort_complex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 20:32:10 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/29 14:52:52 by ahelman          ###   ########.fr       */
+/*   Updated: 2026/05/02 03:36:51 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
 
-void	set_cost(t_node *a, t_node *b)
+static	void	set_cost(t_ps *ps)
 {
-	int	size_a;
-	int	size_b;
+	int			size_a;
+	int			size_b;
+	t_node		*tmp;
 
-	size_a = size_node(a);
-	size_b = size_node(b);
-	while (b)
+	size_a = ps->a.size;
+	size_b = ps->b.size;
+	tmp = ps->b.top;
+	while (tmp)
 	{
-		if (b->pos <= size_b / 2)
-			b->cost_b = b->pos;
+		if (tmp->pos <= size_b / 2)
+			tmp->cost_b = tmp->pos;
 		else
-			b->cost_b = (b->pos - size_b);
-		if (b->target_pos <= size_a / 2)
-			b->cost_a = b->target_pos;
+			tmp->cost_b = tmp->pos - size_b;
+		if (tmp->target_pos <= size_a / 2)
+			tmp->cost_a = tmp->target_pos;
 		else
-			b->cost_a = (b->target_pos - size_a);
-		b = b->next;
+			tmp->cost_a = tmp->target_pos - size_a;
+		tmp = tmp->next;
 	}
 }
 
@@ -57,7 +59,7 @@ static int	get_target_pos(t_node *a, int b_index)
 	return (target_pos);
 }
 
-void	set_target_pos(t_node *a, t_node *b)
+static	void	set_target_pos(t_node *a, t_node *b)
 {
 	t_node	*tmp;
 
@@ -79,7 +81,7 @@ void	sort_complex(t_ps *ps)
 		set_position(ps->a.top);
 		set_position(ps->b.top);
 		set_target_pos(ps->a.top, ps->b.top);
-		set_cost(ps->a.top, ps->b.top);
+		set_cost(ps);
 		do_cheapest(ps);
 	}
 	final_rotate(ps);

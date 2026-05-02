@@ -6,7 +6,7 @@
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 20:44:59 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/05/01 19:08:33 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/05/02 03:37:04 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ static void	push_back_to_a(t_ps *ps)
 {
 	int	max_pos;
 
+	max_pos = 0;
+	if (!ps->b.top)
+		return ;
 	while (ps->b.size > 0)
 	{
 		max_pos = find_max_pos(ps->b.top);
@@ -77,13 +80,35 @@ static void	push_back_to_a(t_ps *ps)
 	}
 }
 
+static int	square_root(int size)
+{
+	double	x;
+	double	prev;
+
+	if (size < 0)
+		return (-1);
+	x = size;
+	prev = 0;
+	while ((x - prev > 0.000001) || (prev - x > 0.000001))
+	{
+		prev = x;
+		x = (x + size / x) / 2;
+	}
+	return (x);
+}
+
 void	sort_medium(t_ps *ps)
 {
 	int	size;
 	int	chunk_size;
 
 	size = ps->a.size;
-	chunk_size = sqrt(size);
+	if (size <= 6)
+	{
+		chunk_size = size;
+	}
+	else
+		chunk_size = square_root(size);
 	if (chunk_size < 1)
 		chunk_size = 1;
 	push_chunks_to_b(ps, chunk_size);

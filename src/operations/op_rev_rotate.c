@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_rev_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 21:16:13 by ahelman           #+#    #+#             */
-/*   Updated: 2026/04/26 19:45:47 by ahelman          ###   ########.fr       */
+/*   Updated: 2026/05/02 02:45:39 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

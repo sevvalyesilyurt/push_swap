@@ -101,9 +101,6 @@ Aşağıdaki bölümde proje içindeki her ana fonksiyonun ne yaptığını basi
   - Yeni bir stack düğümü oluşturur.
   - İçine sayı ve varsayılan değerler atar.
 
-- **size_node:**
-  - Verilen stack’in kaç eleman içerdiğini döndürür.
-
 - **last_node:**
   - Bir stack’in son düğümünü bulur.
   - Son düğüme ekleme yapılırken kullanılır.
@@ -276,6 +273,6 @@ Aşağıdaki bölümde proje içindeki her ana fonksiyonun ne yaptığını basi
 
 ## AI Kullanımı
 
-Bu proje geliştirilirken yapay zekâ araçları; kavramsal anlamayı desteklemek, sahte (pseudo) kod oluşturmak, hata ayıklama süreçlerinde yardımcı olmak ve selection sort, chunk tabanlı sıralama ve Türk algoritması gibi sıralama yaklaşımlarını anlamak amacıyla kullanılmıştır. Tüm kod yazımı sevyesil ve ahelman tarafından gerçekleştirilmiştir. Proje, 42 akademik dürüstlük kurallarına uygun olarak hazırlanmıştır.
+Bu proje geliştirilirken yapay zekâ araçları; kavramsal anlamayı desteklemek, pseudo kod oluşturmak, hata ayıklama süreçlerinde yardımcı olmak ve selection sort, chunk tabanlı sıralama ve Türk algoritması gibi sıralama yaklaşımlarını anlamak amacıyla kullanılmıştır. Tüm kod yazımı sevyesil ve ahelman tarafından gerçekleştirilmiştir. Proje, 42 akademik dürüstlük kurallarına uygun olarak hazırlanmıştır.
 
 ---

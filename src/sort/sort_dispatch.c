@@ -6,7 +6,7 @@
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 16:27:16 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/04/29 13:38:05 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/05/02 02:34:29 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	stack_is_sorted(t_node *a)
 
 void	sort_dispatch(t_ps *ps)
 {
-	if (ps->a.size <= 3)
+	if (ps->a.size <= 5)
 	{
 		sort_small(ps);
 		return ;
