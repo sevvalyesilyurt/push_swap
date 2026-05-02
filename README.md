@@ -18,12 +18,6 @@ Projeyi derlemek için:
 make
 ```
 
-Programı çalıştırmak için:
-
-```bash
-./push_swap 3 2 1 6 5
-```
-
 Oluşturulan obje dosyalarını silmek için:
 
 ```bash
@@ -42,6 +36,12 @@ Projeyi temizleyip yeniden derlemek için:
 make re
 ```
 
+Programı çalıştırmak için:
+
+```bash
+./push_swap 3 2 1 6 5
+```
+
 ---
 
 ## Fonksiyonlar ve Anlatımları
@@ -55,16 +55,21 @@ Aşağıdaki bölümde proje içindeki her ana fonksiyonun ne yaptığını basi
   - Argüman yoksa hemen çıkar.
   - `parse_main` ile girilen sayıları okur ve stack A’ya koyar.
   - Zaten sıralı ise programı bitirir.
-  - Verilen girişin karışıklığını hesaplar, uygun stratejiyi seçer, indeksler atar ve son olarak `sort_dispatch` ile sıralamaya geçer.
+  - **Veri Analizi:** Verilen girişin "disorder" (düzensizlik) oranını hesaplar.
+  - **Strateji Belirleme:** Eğer `--adaptive` flag'i aktifse, hesaplanan orana göre en verimli algoritmayı seçer.
+  - Son olarak indeksleme yapar ve `sort_dispatch` ile sıralamaya başlar.
 
 - **compute_disorder:**
-  - Stack A içindeki sayı çiftlerini karşılaştırır.
-  - Kaç tane yanlış sıra (a>b) olduğunu sayar ve bu değeri toplam çift sayısına böler.
-  - Elde edilen oran, girişin ne kadar karışık olduğunu gösterir.
+  - Dizinin ne kadar "karışık" olduğunu matematiksel olarak ölçer.
+  - Stack A'daki tüm eleman çiftlerini (i ve j) karşılaştırır. Eğer `i < j` iken `A[i] > A[j]` ise bu bir "hata" (inversion) kabul edilir.
+  - **Formül:** `Hata Sayısı / Toplam Çift Sayısı [n*(n-1)/2]`.
+  - Sonuç 0.0 (tamamen sıralı) ile 1.0 (tamamen ters sıralı) arasında bir değerdir. Bu değer algoritma seçiminde kritik rol oynar.
 
 - **select_strategy:**
-  - `ADAPTIVE` modu seçilmişse, `compute_disorder` sonucuna göre hangi algoritmanın kullanılacağına karar verir.
-  - Az karışıksa basit, orta karışıksa orta, çok karışıksa karmaşık strateji seçer.
+  - `ADAPTIVE` modu seçildiğinde devreye girer:
+    - **Disorder < 0.2:** Dizi zaten büyük oranda sıralıdır. **Simple** (O(n²)) stratejisi en az hamleyi üretir.
+    - **0.2 <= Disorder < 0.5:** Orta derece karışıklık. **Medium** (O(n√n)) stratejisi seçilir.
+    - **Disorder >= 0.5:** Dizi çok karışıktır. En optimize çözüm olan **Complex** (O(n log n)) stratejisi kullanılır.
 
 ### 2. Girdi Okuma ve Kontrol
 
@@ -174,35 +179,34 @@ Aşağıdaki bölümde proje içindeki her ana fonksiyonun ne yaptığını basi
   - Belirli koşullara göre `sa`, `ra` veya `rra` hamlelerini kullanır.
 
 - **sort_simple:**
-  - 4 veya 5 elemanlı dizilerde kullanılır.
-  - En küçük elemanı en üste getirip `pb` ile B’ye gönderir.
-  - A boşalana kadar devam eder, sonra B’den yeniden `pa` ile geri alır.
-  - Bu yöntem, küçük diziler için güvenli ve hızlıdır.
+  - **Mantık (Selection Sort):** Stack A'daki en küçük elemanı sürekli bulup en üste getirir (ra/rra) ve B'ye atar (pb).
+  - Stack A tamamen boşaldığında veya sıralı hale geldiğinde, B'dekileri geri çeker (pa).
+  - **Neden kullanılır?** Çok küçük dizilerde veya zaten %80'i sıralı olan büyük dizilerde, karmaşık hesaplamalara girmeden en az hamleyle çözüme ulaşabilir.
 
 ### 7. Orta Boy Sıralama
 
 - **sort_medium:**
-  - Orta büyüklükte dizilerde `sqrt(n)` yaklaşımı kullanır.
-  - A’dan B’ye gruplar halinde değerler taşır.
-  - Taşınan değerlerin bir kısmını B’de döndürerek daha iyi yerleşme sağlar.
-  - Sonra B’den en büyük elemanı bulur, doğru yere getirir ve `pa` ile A’ya geri taşır.
+  - **Mantık (Square Root Decomposition):** Diziyi `sqrt(n)` büyüklüğünde sanal parçalara (chunk) böler.
+  - **A'dan B'ye Geçiş:** Sadece o anki "chunk" içinde kalan indeksleri B'ye gönderir. Eğer gönderilen sayı chunk'ın küçük yarısındaysa B'yi döndürerek (`rb`) B içinde bir ön-sıralama yapar. Bu, B'den geri dönerken işi kolaylaştırır.
+  - **B'den A'ya Geçiş:** B'deki en büyük elemanı bulur, en kısa yoldan (ra/rra kararı) tepeye getirir ve A'ya geri iter.
+  - **Performans:** O(n√n) karmaşıklığındadır, 100-500 arası sayılarda dengeli bir performans sunar.
 
 - **push_chunks_to_b:**
-  - A’daki küçük değerleri parça parça B’ye gönderir.
-  - Aynı zamanda B’deki bazı sayıları `rb` ile döndürerek doğru yere yerleşmelerini sağlar.
+  - A'daki elemanları indekslerine göre gruplayarak B'ye taşır, B'yi bir "kum saati" yapısına sokar.
 
 - **push_back_to_a:**
-  - B’deki en büyük sayıyı bulur ve onu A’ya geri getirir.
-  - En büyük sayıya en az hamleyle ulaşmak için `rb` veya `rrb` kullanır.
+  - B'deki elemanları en büyükten başlayarak optimize rotasyonlarla A'ya geri taşır.
 
 ### 8. Karmaşık Sıralama
 
 - **sort_complex:**
-  - İlk olarak A’dan 3 eleman dışındaki tüm sayıları B’ye gönderir.
-  - A’daki 3 elemanı `sort_small` ile sıralar.
-  - Sonra B’deki her eleman için en iyi hedef pozisyon ve maliyet hesaplanır.
-  - En düşük toplam maliyete sahip eleman `do_cheapest` ile A’ya geri gönderilir.
-  - Son olarak A’yı tamamen sıralı hale getirmek için `final_rotate` yapılır.
+  - **Mantık (Mechanical Turk / Greedy Algorithm):** En gelişmiş algoritmamızdır. 
+  - **Hazırlık:** A'da sadece 3 eleman kalana kadar her şeyi B'ye iter. A'daki 3 elemanı `sort_small` ile sıralar.
+  - **Maliyet Analizi:** B'deki her bir eleman için:
+    1. A'da nereye girmesi gerektiğini bulur (`target_pos`).
+    2. O elemanı B'nin üstüne getirme maliyeti + A'daki hedef yerini en üste getirme maliyetini hesaplar.
+  - **Açgözlü Seçim:** Toplam hamle sayısı (maliyet) en düşük olan elemanı seçer ve `rr`/`rrr` (ortak döndürme) optimizasyonlarını kullanarak A'ya taşır.
+  - **Sonuç:** O(n log n) gibi çalışır ve özellikle 500+ sayılarda çok düşük hamle sayıları (genelde < 5500) elde eder.
 
 - **set_target_pos:**
   - B’deki her elemanın A’daki hedef pozisyonunu belirler.
