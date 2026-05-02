@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 13:40:50 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/05/02 10:53:21 by ahelman          ###   ########.fr       */
+/*   Updated: 2026/05/02 19:48:38 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void				final_rotate(t_ps *ps);
 
 void				parse_main(t_ps *ps, int argc, char **argv);
 void				parse_free_split(char **split);
-int					ps_validate_string_control(char *str);
+int					string_control(char *str);
 void				parse_numbers(t_ps *ps, char *str);
 
 int					ft_strcmp(char *s1, char *s2);

@@ -6,7 +6,7 @@
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 16:10:52 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/05/02 03:37:30 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/05/02 22:04:25 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,7 @@ static	void	sort_five_number(t_ps *ps)
 	}
 	sort_three(ps);
 	while (ps->b.size > 0)
-	{
 		pa(ps);
-	}
 }
 
 void	sort_small(t_ps *ps)

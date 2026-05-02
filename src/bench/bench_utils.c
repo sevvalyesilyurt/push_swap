@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   bench_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 16:14:30 by ahelman           #+#    #+#             */
-/*   Updated: 2026/04/29 16:14:31 by ahelman          ###   ########.fr       */
+/*   Updated: 2026/05/02 22:02:13 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-size_t	ft_strlen(const char *s)
+static	size_t	ft_strlen(const char *s)
 {
 	size_t	len;
 

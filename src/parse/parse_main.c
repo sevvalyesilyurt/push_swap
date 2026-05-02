@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
+/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 19:01:56 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/05/02 10:54:10 by ahelman          ###   ########.fr       */
+/*   Updated: 2026/05/02 22:08:18 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	parse_main(t_ps *ps, int argc, char **argv)
 
 	i = parse_flags(ps, argc, argv);
 	if (i == argc)
-		exit(0);
+		return ;
 	while (i < argc)
 	{
 		if (argv[i][0] == '\0')

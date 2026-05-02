@@ -6,12 +6,11 @@
 /*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 20:44:59 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/05/02 03:37:04 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/05/02 22:05:38 by sevyesil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <math.h>
 
 static	int	find_max_pos(t_node *b)
 {
@@ -103,12 +102,7 @@ void	sort_medium(t_ps *ps)
 	int	chunk_size;
 
 	size = ps->a.size;
-	if (size <= 6)
-	{
-		chunk_size = size;
-	}
-	else
-		chunk_size = square_root(size);
+	chunk_size = square_root(size);
 	if (chunk_size < 1)
 		chunk_size = 1;
 	push_chunks_to_b(ps, chunk_size);

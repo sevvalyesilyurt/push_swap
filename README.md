@@ -132,7 +132,7 @@ Aşağıdaki bölümde proje içindeki her ana fonksiyonun ne yaptığını basi
   - `ft_split` tarafından oluşturulan dinamik diziyi serbest bırakır.
   - Bellek sızıntısını önler.
 
-- **ps_validate_string_control:**
+- **string_control:**
   - Bir string’in geçerli bir sayı formatında olup olmadığını kontrol eder.
   - `+`, `-` işaretleri ve sadece rakam içermesi gerektiğini denetler.
 
@@ -228,7 +228,7 @@ Aşağıdaki bölümde proje içindeki her ana fonksiyonun ne yaptığını basi
 ### 7. Medium Sıralama
 
 - **sort_medium:**
-  - **Mantık (Square Root Decomposition):** Diziyi `sqrt(n)` büyüklüğünde sanal parçalara (chunk) böler.
+  - **Mantık (Chunk Sort Algorithm):** Diziyi `sqrt(n)` büyüklüğünde sanal parçalara (chunk) böler.
   - **A'dan B'ye Geçiş:** Sadece o anki "chunk" içinde kalan indeksleri B'ye gönderir. Eğer gönderilen sayı chunk'ın küçük yarısındaysa B'yi döndürerek (`rb`) B içinde bir ön-sıralama yapar. Bu, B'den geri dönerken işi kolaylaştırır.
   - **B'den A'ya Geçiş:** B'deki en büyük elemanı bulur, en kısa yoldan (ra/rra kararı) tepeye getirir ve A'ya geri iter.
   - **Performans:** O(n√n) karmaşıklığındadır, 100-500 arası sayılarda dengeli bir performans sunar.
