@@ -1,6 +1,7 @@
+*This project has been created as part of the 42 curriculum by sevyesil, ahelman.*
+
 # push_swap
 
-*This project has been created as part of the 42 curriculum by sevyesil, ahelman.*
 
 ## Açıklama
 
@@ -88,7 +89,23 @@ Aşağıdaki bölümde proje içindeki her ana fonksiyonun ne yaptığını basi
     - **Disorder < 0.2:** Dizi zaten büyük oranda sıralıdır. **Simple** (O(n²)) stratejisi en az hamleyi üretir.
     - **0.2 <= Disorder < 0.5:** Orta derece karışıklık. **Medium** (O(n√n)) stratejisi seçilir.
     - **Disorder >= 0.5:** Dizi çok karışıktır. En optimize çözüm olan **Complex** (O(n log n)) stratejisi kullanılır.
+- **bench:**
+	- Program `--bench` flag’i ile çalıştırıldığında, sıralama işlemi tamamlandıktan sonra performans bilgileri stderr’e yazdırılır.
 
+	- Bu mod, algoritmanın nasıl davrandığını analiz etmek için kullanılır ve normal operasyon çıktısını etkilemez.
+
+	- Gösterilen bilgiler:
+
+	- **disorder:** Giriş verisinin ne kadar karışık olduğunu gösteren oran (0 ile 1 arası)
+	- **strategy:** Kullanılan algoritma ve teorik complexity’si
+	- **total_ops:** Toplam yapılan operasyon sayısı
+	- **operation counts:** Her bir push_swap komutunun kaç kez kullanıldığı
+
+ 	Örnek kullanım:
+
+```bash
+	- ./push_swap --bench 3 2 1 6 5 7 9 8
+```
 ### 2. Girdi Okuma ve Kontrol
 
 - **parse_main:**
@@ -186,22 +203,22 @@ Aşağıdaki bölümde proje içindeki her ana fonksiyonun ne yaptığını basi
 
 - **sort_dispatch:**
   - Hangi sıralama fonksiyonunun kullanılacağına karar verir.
-  - 3 veya daha az sayı varsa küçük sıralama algoritmasını doğrudan kullanır.
+  - 5 veya daha az sayı varsa küçük sıralama algoritmasını doğrudan kullanır.
   - Seçilen stratejiye göre `sort_simple`, `sort_medium` veya `sort_complex` çağırır.
 
-### 6. Küçük Boyutlu Sıralama
+### 6.Simple ve Küçük Boyutlu Sıralama
 
 - **sort_small:**
-  - Tam olarak 3 elemanlı bir stack’i sıralar.
-  - Üç sayı için en az hamleyle doğru sıra elde edilir.
+  - Tam olarak 5 ve daha az elemanlı bir stack’i sıralar.
+  - Küçük sayılar için en az hamleyle doğru sıra elde edilir.
   - Belirli koşullara göre `sa`, `ra` veya `rra` hamlelerini kullanır.
 
 - **sort_simple:**
   - **Mantık (Selection Sort):** Stack A'daki en küçük elemanı sürekli bulup en üste getirir (ra/rra) ve B'ye atar (pb).
   - Stack A tamamen boşaldığında veya sıralı hale geldiğinde, B'dekileri geri çeker (pa).
-  - **Neden kullanılır?** Çok küçük dizilerde veya zaten %80'i sıralı olan büyük dizilerde, karmaşık hesaplamalara girmeden en az hamleyle çözüme ulaşabilir.
+  - **Neden kullanılır?** Bu sıralama; %80'i sıralı olan büyük dizilerde, karmaşık hesaplamalara girmeden en az hamleyle çözüme ulaşabilir.
 
-### 7. Orta Boy Sıralama
+### 7. Medium Sıralama
 
 - **sort_medium:**
   - **Mantık (Square Root Decomposition):** Diziyi `sqrt(n)` büyüklüğünde sanal parçalara (chunk) böler.
@@ -283,6 +300,20 @@ Aşağıdaki bölümde proje içindeki her ana fonksiyonun ne yaptığını basi
   - Programı derhal sonlandırır.
 
 ---
+## Katkılar
+
+- sevyesil:
+  - Parsing ve input validation
+  - Simple ve Medium ve complex algoritmalar
+  - Complex algoritma (cost / greedy)
+  - makefile ve yardımcı fonksiyonlar
+  
+
+- ahelman:
+  - Simple ve Medium ve complex algoritmalar
+  - Adaptive strategy ve disorder hesaplama
+  - Stack operasyonları ve yardımcı fonksiyonları
+  - Benchmark sistemi
 
 ## Kaynaklar
 
@@ -295,6 +326,6 @@ Aşağıdaki bölümde proje içindeki her ana fonksiyonun ne yaptığını basi
 
 ## AI Kullanımı
 
-Bu proje geliştirilirken yapay zekâ araçları; kavramsal anlamayı desteklemek, pseudo kod oluşturmak, hata ayıklama süreçlerinde yardımcı olmak ve selection sort, chunk tabanlı sıralama ve Türk algoritması gibi sıralama yaklaşımlarını anlamak amacıyla kullanılmıştır. Tüm kod yazımı sevyesil ve ahelman tarafından gerçekleştirilmiştir. Proje, 42 akademik dürüstlük kurallarına uygun olarak hazırlanmıştır.
+Bu proje geliştirilirken yapay zekâ araçları; kavramsal anlamayı desteklemek, akış diyagramı oluşturmak, hata ayıklama süreçlerinde yardımcı olmak ve selection sort, chunk tabanlı sıralama ve Türk algoritması gibi sıralama yaklaşımlarını anlamak amacıyla kullanılmıştır. Tüm kod yazımı sevyesil ve ahelman tarafından gerçekleştirilmiştir. Proje, 42 akademik dürüstlük kurallarına uygun olarak hazırlanmıştır.
 
 ---

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 13:39:55 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/05/02 02:59:08 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/05/02 14:47:55 by ahelman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
