@@ -329,7 +329,7 @@ Aşağıdaki bölümde proje içindeki her ana fonksiyonun ne yaptığını basi
 - GeeksforGeeks  
 - Stack Overflow
 - CS 1332 Data Structures & Algorithms Visualization Tool
-- w3schools
+- W3schools
 
 ---
 
