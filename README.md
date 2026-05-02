@@ -321,6 +321,8 @@ Aşağıdaki bölümde proje içindeki her ana fonksiyonun ne yaptığını basi
 - C Standard Library (man pages)  
 - GeeksforGeeks  
 - Stack Overflow
+- CS 1332 Data Structures & Algorithms Visualization Tool
+- w3schools
 
 ---
 
