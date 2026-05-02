@@ -330,6 +330,7 @@ Aşağıdaki bölümde proje içindeki her ana fonksiyonun ne yaptığını basi
 - Stack Overflow
 - CS 1332 Data Structures & Algorithms Visualization Tool
 - W3schools
+- Çölkesen, R. (2022). Veri Yapıları ve Algoritmalar. Papatya Bilim.
 
 ---
 
