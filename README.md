@@ -41,12 +41,30 @@ Programı çalıştırmak için:
 ```bash
 ./push_swap 3 2 1 6 5
 ```
+Progrmaı hangi algoritmada çalışmasınıda derlerken seçilebilir:
 
+* `her algoritma kendine özel algoritmasını kullanarak sıralar ve ona göre çıktı verir`
+
+* bench flagi giridiğinizde size çalışan algoritmanın karmaşıklığını oranı (disorder) verir.
+
+* flag girilmediği taktirde adaptive algoritmasıyla ölçülen karmaşıklığa bağlı olarak farklı iç yöntemler seçen uyarlanabilir bir strateji uygular.
+
+* Düşük karmaşıklık: eğer karmaşıklık < 0,2 ise, seçtiğiniz yöntem O(n²) sürede çalışmalıdır.
+
+* Orta karmaşıklık: eğer 0,2 <= karmaşıklık < 0,5 ise, seçtiğiniz yöntem O(n√n) sürede çalışmalıdır.
+
+* Yüksek karmaşıklık : eğer karmaşıklık >= 0,5 ise, seçtiğiniz yöntem O(n log n) sürede çalışmalıdır.
+
+./push_swap --bench --simple 3 2 1 6 5 7 9 8
+
+./push_swap --bench --medium  3 2 1 6 5 7 9 8
+
+./push_swap --bench --complex 3 2 1 6 5 7 9 8
 ---
 
 ## Fonksiyonlar ve Anlatımları
 
-Aşağıdaki bölümde proje içindeki her ana fonksiyonun ne yaptığını basit bir dille anlattım. Başlangıçtan sona kadar, programın nasıl çalıştığını adım adım takip edebilirsiniz.
+Aşağıdaki bölümde proje içindeki her ana fonksiyonun ne yaptığını basit bir dille anlattık. Başlangıçtan sona kadar, programın nasıl çalıştığını adım adım takip edebilirsiniz.
 
 ### 1. Ana Akış ve Strateji Seçimi
 
