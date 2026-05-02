@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 18:13:25 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/05/02 03:27:18 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/05/02 10:54:14 by ahelman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

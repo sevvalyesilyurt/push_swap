@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_complex_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sevyesil <sevyesil@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: ahelman <ahelman@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 16:13:38 by sevyesil          #+#    #+#             */
-/*   Updated: 2026/05/02 03:00:45 by sevyesil         ###   ########.fr       */
+/*   Updated: 2026/05/02 10:54:42 by ahelman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
