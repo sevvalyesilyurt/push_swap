@@ -2,7 +2,6 @@
 
 # push_swap
 
-
 ## Açıklama
 
 push_swap, verilen bir dizi sayıyı iki yığın (stack A ve stack B) kullanarak, sadece izin verilen hareketlerle sıralamayı hedefleyen bir projedir.
@@ -42,7 +41,8 @@ Programı çalıştırmak için:
 ```bash
 ./push_swap 3 2 1 6 5
 ```
-Progrmaı hangi algoritmada çalışmasınıda derlerken seçilebilir:
+
+Programı hangi algoritmada çalışmasınıda derlerken seçilebilir:
 
 * `her algoritma kendine özel algoritmasını kullanarak sıralar ve ona göre çıktı verir`
 
@@ -56,11 +56,18 @@ Progrmaı hangi algoritmada çalışmasınıda derlerken seçilebilir:
 
 * Yüksek karmaşıklık : eğer karmaşıklık >= 0,5 ise, seçtiğiniz yöntem O(n log n) sürede çalışmalıdır.
 
+```bash
 ./push_swap --bench --simple 3 2 1 6 5 7 9 8
+```
 
+```bash
 ./push_swap --bench --medium  3 2 1 6 5 7 9 8
+```
 
+```bash
 ./push_swap --bench --complex 3 2 1 6 5 7 9 8
+```
+
 ---
 
 ## Fonksiyonlar ve Anlatımları
